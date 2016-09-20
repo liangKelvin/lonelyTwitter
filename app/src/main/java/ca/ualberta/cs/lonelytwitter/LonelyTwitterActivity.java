@@ -23,7 +23,8 @@ public class LonelyTwitterActivity extends Activity {
 	private static final String FILENAME = "file.sav";
 	private EditText bodyText;
 	private ListView oldTweetsList;
-	
+
+	ArrayList<tweet> tweetList = new ArrayList<tweet>();
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +53,7 @@ public class LonelyTwitterActivity extends Activity {
 				ImportantTweet newImportantTweet = new ImportantTweet(text);
 				newImportantTweet.getMessage();
 
-				ArrayList<tweet> tweetList = new ArrayList<tweet>();
+
 				tweetList.add(newTweet);
 				tweetList.add(newImportantTweet);
 
