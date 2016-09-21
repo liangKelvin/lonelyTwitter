@@ -91,6 +91,8 @@ public class LonelyTwitterActivity extends Activity {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
 					Context.MODE_APPEND);
+
+
 			fos.write(new String(date.toString() + " | " + text)
 					.getBytes());
 			fos.close();
