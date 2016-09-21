@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import java.io.File;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -56,6 +57,32 @@ public class LonelyTwitterActivity extends Activity {
 				adapter.notifyDataSetChanged();
 
 				saveInFile();
+			}
+		});
+
+		Button clearButton = (Button) findViewById(R.id.clear);
+
+		clearButton.setOnClickListener(new View.OnClickListener()
+
+		{
+
+			public void onClick (View v){
+				// clear list
+				tweetList.clear();
+				deleteFile(FILENAME); // delete file
+				adapter.notifyDataSetChanged(); // update
+
+				File f = null;
+				boolean bool = false;
+
+				try{
+					// create new file
+					f = new File(FILENAME);
+					bool = f.createNewFile();
+
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 			}
 		});
 	}
@@ -111,4 +138,6 @@ public class LonelyTwitterActivity extends Activity {
 			throw new RuntimeException();
 		}
 	}
+
+
 }
