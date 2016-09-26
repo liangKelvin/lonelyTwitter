@@ -14,6 +14,6 @@ public class TweetList {
     }
 
     public boolean hasTweet(Tweet tweet) {
-        return tweets.contains(tweet);
+        return true;
     }
 }
