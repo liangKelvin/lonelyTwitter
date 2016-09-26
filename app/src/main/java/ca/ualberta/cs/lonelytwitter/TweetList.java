@@ -18,6 +18,6 @@ public class TweetList {
     }
 
     public Tweet getTweet(int i) {
-        return null;
+        return tweets.get(i);
     }
 }
