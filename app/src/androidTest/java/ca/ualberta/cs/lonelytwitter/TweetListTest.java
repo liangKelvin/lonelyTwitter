@@ -30,4 +30,17 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertTrue(list.hasTweet(added));
         assertFalse(list.hasTweet(notAdded));
     }
+
+    /**
+     * Tests getting tweet by index.
+     */
+    public void testGetTweet() {
+        TweetList list = new TweetList();
+        Tweet tweet = new NormalTweet("Hello");
+        list.add(tweet);
+
+        Tweet returnedTweet = list.getTweet(0);
+        assertEquals(tweet.getMessage(), returnedTweet.getMessage());
+        assertEquals(tweet.getDate(), returnedTweet.getDate());
+    }
 }
