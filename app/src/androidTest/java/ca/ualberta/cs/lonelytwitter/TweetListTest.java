@@ -43,4 +43,13 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertEquals(tweet.getMessage(), returnedTweet.getMessage());
         assertEquals(tweet.getDate(), returnedTweet.getDate());
     }
+
+    public void testDeleteTweet() {
+        TweetList list = new TweetList();
+        Tweet tweet = new NormalTweet("Hello");
+
+        list.add(tweet);
+        list.remove(tweet);
+        assertFalse(list.hasTweet(tweet));
+    }
 }
