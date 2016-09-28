@@ -9,7 +9,11 @@ import java.util.List;
 public class TweetList {
     private List<Tweet> tweets = new ArrayList<Tweet>();
 
-    public void add(Tweet tweet) {
+    public void add(Tweet tweet) throws IllegalArgumentException {
+
+        if (tweets.contains(tweet)) {
+            throw new IllegalArgumentException();
+        }
         tweets.add(tweet);
     }
 
@@ -23,5 +27,13 @@ public class TweetList {
 
     public void remove(Tweet tweet) {
         tweets.remove(tweet);
+    }
+
+    public List<Tweet> getTweets() {
+        return tweets;
+    }
+
+    public int getCount() {
+        return tweets.size();
     }
 }

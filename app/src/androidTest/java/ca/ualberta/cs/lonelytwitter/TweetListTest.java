@@ -15,9 +15,18 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
 
         Tweet tweet = new NormalTweet("Testing...");
         list.add(tweet);
-
         assertTrue(list.hasTweet(tweet));
+        Tweet tweet1 = new NormalTweet("Testing...");
+        try{
+            list.add(tweet1);
+            list.hasTweet(tweet1);
+            assertTrue(false);
+        } catch (IllegalArgumentException e) {
+            assertTrue(true);
+        }
+
     }
+
 
     public void testHasTweet() {
         TweetList list = new TweetList();
@@ -52,4 +61,23 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         list.remove(tweet);
         assertFalse(list.hasTweet(tweet));
     }
+
+    public void getCount() {
+        TweetList list = new TweetList();
+        Tweet tweet = new NormalTweet("Hello");
+        Tweet tweet2 = new NormalTweet("Hello2");
+        list.add(tweet);
+        list.add(tweet2);
+        assertFalse(list.getCount() == 2);
+    }
+
+    public void testGetTweets() {
+        TweetList list = new TweetList();
+        Tweet tweet = new NormalTweet("Hello");
+        Tweet tweet2 = new NormalTweet("Hello2");
+        list.add(tweet);
+        list.add(tweet2);
+         assertTrue(list.equals(list.getTweets()));
+    }
+
 }
