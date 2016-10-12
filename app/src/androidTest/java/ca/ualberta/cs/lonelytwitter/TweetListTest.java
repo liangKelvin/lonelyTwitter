@@ -6,10 +6,16 @@ import android.test.ActivityInstrumentationTestCase2;
  * Tests our TweetList class.
  */
 public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitterActivity> {
+    /**
+     * Instantiates a new Tweet list test.
+     */
     public TweetListTest() {
         super(LonelyTwitterActivity.class);
     }
 
+    /**
+     * Test add tweet.
+     */
     public void testAddTweet() {
         TweetList list = new TweetList();
 
@@ -28,6 +34,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
     }
 
 
+    /**
+     * Test has tweet.
+     */
     public void testHasTweet() {
         TweetList list = new TweetList();
         Tweet added = new NormalTweet("Testing...");
@@ -53,6 +62,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertEquals(tweet.getDate(), returnedTweet.getDate());
     }
 
+    /**
+     * Test delete tweet.
+     */
     public void testDeleteTweet() {
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("Hello");
@@ -62,6 +74,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertFalse(list.hasTweet(tweet));
     }
 
+    /**
+     * Gets count.
+     */
     public void getCount() {
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("Hello");
@@ -71,6 +86,9 @@ public class TweetListTest extends ActivityInstrumentationTestCase2<LonelyTwitte
         assertFalse(list.getCount() == 2);
     }
 
+    /**
+     * Test get tweets.
+     */
     public void testGetTweets() {
         TweetList list = new TweetList();
         Tweet tweet = new NormalTweet("Hello");
